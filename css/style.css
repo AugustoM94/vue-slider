@@ -1,34 +1,61 @@
-/* general */
-:root{
-    --ms-orange:  #F28705;
-    --ms-yellow: #D9CF43;
-    --ms-green: #395873; 
-    --ms-dark:  #010440; 
-    --ms-primary: #7302178a; 
-    --ms-light: #ffffff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    font-family: 'Roboto', sans-serif;
+body {
+    background-color: antiquewhite;
 }
-.items {
-    position: relative;
-    margin:50px auto;
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    float: left;
     width: 700px;
     height: 300px;
-    border:1px solid black;
+    position: relative;
 }
-.item{
-   height: 100%;
-   display: none;
-}
+
 .item img {
+    width: 100%;
+    height: 500px;
+}
+
+.item .text {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    text-align: right;
+    color: white;
+}
+
+.thumbs {
+    float: left;
+    height: 500px;
+    background: #000;
+    position: relative;
+}
+
+.thumb {
+    height: calc((100%) / 5);
+    opacity: 0.5;
+}
+
+.thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.item.active {
-    display: block;
+
+.thumb.active {
+    border: 2px solid #ccc;
+    opacity: 1;
 }
+
 .prev, .next {
     width: 20px;
     height: 20px;
@@ -41,18 +68,21 @@ body{
     cursor: pointer;
     z-index: 999;
 }
-.prev{
-    top: 0;
-}
+
 .next {
     bottom: 0;
 }
 
+/*
+EXTRA: in questo esempio gli accordion vengono creati
+usando 2 bordi di un quadratino ruotato di 45 gradi
+In una versione base si possono usare delle icone
+oppure i caratteri ∧ (&and;) e ∨ (&or;)
+ */
 .prev::after {
     content: '';
     width: 10px;
     height: 10px;
-    transform: rotate(45deg);
     border-top: 1px solid black;
     border-right: 1px solid black;
     display: block;
@@ -66,7 +96,6 @@ body{
     content: '';
     width: 10px;
     height: 10px;
-    transform: rotate(45deg);
     border-top: 1px solid black;
     border-right: 1px solid black;
     display: block;
