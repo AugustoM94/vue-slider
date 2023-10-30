@@ -5,6 +5,8 @@ createApp({
     data () {
         return {
             activeIndex: 0,
+            isSlideshowRunning: false,
+            slideshowInterval: null,
 
             slides: [
                       {
@@ -50,6 +52,9 @@ createApp({
           } else {
             this.activeIndex -= 1;
           }
+        },
+        thumbnailClick(index) {
+            this.activeIndex = index;
         },
       },
     }).mount('#app');
