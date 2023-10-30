@@ -1,0 +1,1 @@
+Partendo dal markup fornito, implementare un carousel
